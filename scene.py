@@ -22,8 +22,8 @@ except :
 for root, dirs, files in os.walk(INPUT_FOLDER):
   for file in files:
   	print file
-  	im = Image.open(os.path.join(INPUT_FOLDER,file))
-  	im_resized = im.resize(resolution, Image.ANTIALIAS)
+  	im = Image.open(os.path.join(INPUT_FOLDER,file)).convert('LA')			# RGB to GrayScale Conversion
+  	im_resized = im.resize(resolution, Image.ANTIALIAS)						# Resizing the Image
 	im_resized.save(os.path.join(OUTPUT_FOLDER,file))
 
 
